@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer type="text/javascript" src="script"></script>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style/index.css">
+  <title>Document</title>
+</head>
+<header>
+
+</header>
+
+<body>
+  <main>
+    <section class="canvas"><canvas></canvas></section>
+    <section class="templates-options-container"></section>
+
+    <section class="settings">
+      <button class="settings__add-template">Добавить</button>
+      <input type="file" class="settings__image-input" accept="image/*,.png,.jpg,.gif,.web,.jpeg">
+      <input class="settings__input-color" type="color">
+
+      <input class="resizing" type="range" min="24" max="250" step="2" value="50">
+
+      <div class="settings__relocation">
+        <button class="up">в верх</button>
+        <button class="down">в низ</button>
+        <button class="left">в леао</button>
+        <button class="right">в право </button>
+      </div>
+
+      <button class="download">скачать</button>
+    </section>
+
+
+  </main>
+  <script src="./script/script.js"> </script>
+  <!-- <script src="./script/test.js"> </script> -->
+  <script src="./script/UserSettings.js"> </script>
+</body>
+<footer>
+</footer>
+
+</html>
