@@ -5,7 +5,10 @@ let img = 1,
   y = 50, // Y верхний левого угла вормеруемого списка
   intermediateDistance = 10; // растояние между строками
 
-let first = [];
+let displayTemplate = {
+  id: 0,
+  content: [],
+};
 
 async function templateSelection() {
   let templateList = await fetchData();
@@ -14,7 +17,8 @@ async function templateSelection() {
   listAllTemplates.forEach((element) => {
     element.onclick = (event) => {
       let index = event.target.id;
-      displayTemplate = templateList[index].content;
+      displayTemplate.content = templateList[index].content;
+      displayTemplate.id = templateList[index].id;
       reset();
     };
   });
@@ -40,11 +44,11 @@ imageInput.addEventListener("change", () => {
 const btnAddTemplate = document.querySelector(".settings__add-template");
 btnAddTemplate.addEventListener("click", () => {
   if (img != undefined) {
+    templateRendering(displayTemplate.content);
   } else {
     alert("Сначало загрузите изображение");
   }
 });
-templateRendering(displayTemplate);
 
 function ColorСhange() {
   const inputColor = document.querySelector(".settings__input-color");
@@ -145,7 +149,7 @@ async function reset() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0);
-    templateRendering(displayTemplate);
+    templateRendering(displayTemplate.content);
   } else {
     alert("Сначало загрузите изображение");
   }

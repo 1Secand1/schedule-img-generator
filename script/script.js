@@ -37,34 +37,29 @@ generatingList();
 function templateRendering(array) {
   let localX = x;
   let localY = y;
-  let rowHeight = fontText - 10; // высота страки котороая преблезительно = размер текста - 10
 
-  let indentInterval = 0;
-  let rightIndent = fontText ; // отступ справа равен относительно размера теста
-  array.forEach((element) => {
-    indentInterval++;
-    if (indentInterval === 2) {
-      localX += rightIndent;
-    }
+  switch (displayTemplate.id) {
+    case 0:
+      templateScript0(localX, localY, array);
+      break;
 
-    ctx.fillStyle = `${textСolor}`;
-    ctx.font = `${fontText}px Montserrat`;
-    ctx.fillText(`${element}`, localX, localY);
-    localY += intermediateDistance + rowHeight;
+    case 1:
+      templateScript1(localX, localY, array);
+      break;
 
-    if (indentInterval === 2) {
-      localX -= rightIndent;
-      localY += 20;
-      indentInterval = 0;
-    }
-  });
+    case 2:
+      templateScript2(localX, localY, array);
+      break;
+
+    case 3:
+      templateScript3(localX, localY, array);
+      break;
+
+    case 4:
+      templateScript4(localX, localY, array);
+      break;
+
+    default:
+      break;
+  }
 }
-
-/*
-  array.forEach((element) => {
-    ctx.fillStyle = `${textСolor}`;
-    ctx.font = `${fontText}px Montserrat`;
-    ctx.fillText(`${element}`, localX, localY);
-    localY += intermediateDistance + rowHeight;
-  });
-*/
